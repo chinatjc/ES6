@@ -74,9 +74,3 @@ y // 2
 
 // 报错
 let [x = y, y = 2] = []; // ReferenceError: y is not defined
-
-
-
-
-
-

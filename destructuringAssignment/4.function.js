@@ -22,3 +22,6 @@ move2({x: 1, y: 2}); // [1, 2]
 move2({x: 1}); // [1, undefined]
 move2({}); // [undefined, undefined]
 move2(); // [0, 0]
+
+// undefined 会触发函数参数的默认值
+['宫保鸡丁', undefined, '狮子头'].map((dish = '土豆丝') => dish); // ["宫保鸡丁", "土豆丝", "狮子头"]
