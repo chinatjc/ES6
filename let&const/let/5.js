@@ -9,6 +9,8 @@
         console.log(2, arg);
     }
 })('outer');
+// 1 "outer"
+// 2 "inner"
 
 // 块级作用域可以代替匿名函数，不会污染全局
 (function (){

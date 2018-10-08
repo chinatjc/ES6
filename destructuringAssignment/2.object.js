@@ -14,8 +14,8 @@ let arr = [];
 
 ({foo: obj.prop, bar: arr[0]} = {foo: {prop: 123}, bar: [456]});
 
-obj // {prop: 123}
-arr // [456]
+obj // { prop: 123 }
+arr // [ 456 ]
 
 // 默认值，对象的 属性值 严格等于 undefined 时，变量赋于默认值
 let {x, y = 5} = {x: 2};
