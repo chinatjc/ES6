@@ -126,7 +126,6 @@
 
 <br>
 
-
 > trimEnd 方法
 ```javascript
 	string.trimEnd();
