@@ -132,6 +132,22 @@
 
     // 多条执行语句
     const fn6Name = () => { statements };
+
+
+
+
+    // 解决箭头函数迭代引用自身函数的问题：通过在函数作用域链中创建变量引用
+    let fn = (f = () => {
+        console.log(f);
+    });
+
+    console.log(f); // () => { console.log(f); }
+
+    let handler = fn;
+
+    fn = null;
+
+    handler();     // () => { console.log(f); }
 ```
 - 与 function 声明函数的不同点
     - 箭头函数 `没有内部的this` ，导致在调用 `this` 时，只能沿着作用域链查找this
