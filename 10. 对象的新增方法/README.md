@@ -118,5 +118,3 @@
     const keysValuesList = [['foo', 'bar'], ['baz', 42]];
     Object.fromEntries(keysValuesList); // {foo: 'bar', baz: 42}
 ```
-
-
