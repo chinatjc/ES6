@@ -76,6 +76,47 @@
 
 <br>
 
+> Map.prototype.keys、Map.prototype.values、Map.prototype.entries
+- `keys方法`、`values方法`、`entries方法`，返回的都是遍历器对象
+- Map 结构 `默认的遍历器生成函数` 就是 `Map.prototype.entries`
+```javascript
+    const map = new Map([
+        ['1', 'one'],
+        ['2', 'two'],
+        ['3', 'three']
+    ]);
+
+    for(let key of map.keys()) {
+        console.log(key);
+    }
+    // '1', '2', '3'
+
+    for(let value of map.values()) {
+        console.log(value);
+    }
+    // 'one', 'two', 'three'
+
+    for(let item of map.entries()) {
+        console.log(item);
+    }
+    // ['1', 'one'], ['2', 'two'], ['3', 'three']
+
+
+
+
+
+    // Map 结构 默认的遍历器生成函数 就是 Map.prototype.values
+
+    Map.prototype[Symbol.iterator] === Map.prototype.entries; // true
+
+    for(let value of map) {
+        console.log(value);
+    }
+    // ['1', 'one'], ['2', 'two'], ['3', 'three']
+```
+
+<br>
+
 > Map.prototype.forEach 方法
 - `map.forEach((value, key, map) => {statement}[, thisArg])`
 - 其用法和 Array.prototype.forEach 一样

@@ -191,6 +191,33 @@
 
 <br>
 
+> Symbol.iterator
+- 对象的Symbol.iterator属性，指向该对象的默认遍历器方法
+- 使用 `for of` 遍历对象时，会调用 `Symbol.iterator` 方法，返回该对象的默认遍历器
+```javascript
+    const obj = {
+        [Symbol.iterator]() {
+            const start = 3;
+            const stop = 5;
+            let count = 0;
+
+            const next = () => {
+                const value = start + count++;
+                return value > stop ? { value: undefined, done: true } : { value, done: false };
+            };
+
+            return { next };
+        }
+    }
+
+    for(let value of obj) {
+        console.log(value);
+    }
+    // 3, 4, 5
+```
+
+<br>
+
 > Symbol.toPrimitive
 - 当对象需要转为原始类型的值时，调用该方法
 - Symbol.toPrimitive被调用时，会接收一个字符串参数，表示当前运算的模式，一共有三种模式
