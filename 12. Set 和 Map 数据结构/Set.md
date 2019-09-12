@@ -67,6 +67,43 @@
 
 <br>
 
+> Set.prototype.keys、Set.prototype.values、Set.prototype.entries
+- `keys方法`、`values方法`、`entries方法`，返回的都是遍历器对象
+- Set 结构 `默认的遍历器生成函数` 就是 `Set.prototype.values`
+```javascript
+    const set = new Set(['a', 'b', 'c', 'd']);
+
+    for(let key of set.keys()) {
+        console.log(key);
+    }
+    // 'a', 'b', 'c', 'd'
+
+    for(let value of set.values()) {
+        console.log(value);
+    }
+    // 'a', 'b', 'c', 'd'
+
+    for(let item of set.entries()) {
+        console.log(item);
+    }
+    // ['a', 'a'], ['b', 'b'], ['c', 'c'], ['d', 'd']
+
+
+
+
+
+    // Set 结构 默认的遍历器生成函数 就是 Set.prototype.values
+
+    Set.prototype[Symbol.iterator] === Set.prototype.values; // true
+
+    for(let value of set) {
+        console.log(value);
+    }
+    // 'a', 'b', 'c', 'd'
+```
+
+<br>
+
 > Set.prototype.forEach 方法
 - `set.forEach((value, key, set) => {statement}[, thisArg])`
 - 其用法和 Array.prototype.forEach 一样

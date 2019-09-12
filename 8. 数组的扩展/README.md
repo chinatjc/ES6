@@ -48,6 +48,36 @@
 
 <br>
 
+> Array.from 方法
+- `array = Array.from(obj[, mapFn[, mapFnThis]])`
+- Array.from 方法可以将两类数据结构转为真正的数组：类数组对象、可遍历对象
+- 对于 真正的数组 Array.from会对数组进行 `浅拷贝` ，然后 `返回浅拷贝后的数组`
+```javascript
+    // 类数组对象 -> 数组
+    const obj = {
+        1: 'one',
+        2: 'two',
+        3: 'three',
+        length: 3
+    };
+
+    Array.from(obj); // ['one', 'two', 'three']
+
+
+
+    // set -> array
+    const set = new Set([1, 2, 3, 4]);
+    Array.from(set); // [1, 2, 3, 4]
+
+
+
+    // Array.from 可以接受 mapFn 函数、mapFnThis
+    const set = new Set([1, 2, 3, 4]);
+    Array.from(set, function(i) { return `${this.name}: ${i}` }, { name: 'Set' }); //  ['Set: 1', 'Set: 2', 'Set: 3', 'Set: 4']
+```
+
+<br>
+
 > Array.of 方法
 - `array = Array.of([arg1][, arg2][, arg3]...)`
 - 用于将接收的参数转化数组； `Array.of 无参数` 时，返回 `空数组[]`
@@ -105,6 +135,31 @@
     const list = [1, 2, 3, 4];
     const returnList = list.fill('-', 1, 3); // [1, '-', '-', 4]
     returnList === list; // true    原数组被改动
+```
+
+<br>
+
+> 数组实例的 keys()、values()、entries()
+- 分别对 `键名`、 `键值` 、 `键值对` 的遍历
+```javascript
+    const arr = ['one', 'two', 'three'];
+
+    for (let key of arr.keys()) {
+        console.log(key);
+    }
+    // 0, 1, 2
+
+
+    for (let value of arr.values()) {
+        console.log(value);
+    }
+    // 'one', 'two', 'three'
+
+
+    for (let item of arr.entries()) {
+        console.log(item);
+    }
+    // [0, 'one'], [1, 'two'], [2, 'three']
 ```
 
 <br>
